@@ -29,7 +29,7 @@ public class PaymentController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<PaymentResponse> geyPayments() {
+    public List<PaymentResponse> getPayments() {
         return paymentMapper.toList(paymentService.getPayments());
     }
 
