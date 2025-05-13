@@ -1,6 +1,6 @@
 package br.com.desafio.domain.service.impl;
 
-import br.com.desafio.domain.exception.NoApplicableTaxException;
+import br.com.desafio.exception.NoApplicableTaxException;
 import br.com.desafio.domain.service.ITaxStrategyService;
 import br.com.desafio.domain.service.strategy.ITaxStrategy;
 import lombok.RequiredArgsConstructor;

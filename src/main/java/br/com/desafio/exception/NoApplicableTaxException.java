@@ -1,4 +1,4 @@
-package br.com.desafio.domain.exception;
+package br.com.desafio.exception;
 
 public class NoApplicableTaxException extends RuntimeException {
 
