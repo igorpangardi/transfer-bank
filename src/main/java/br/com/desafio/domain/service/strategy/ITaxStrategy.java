@@ -6,6 +6,6 @@ import java.time.LocalDate;
 public interface ITaxStrategy {
 
     BigDecimal calculateTax(LocalDate transferDate, BigDecimal transferAmount, LocalDate schedulingDate);
-    boolean isApplicable(LocalDate transferDate, BigDecimal transferAmount, LocalDate schedulingDate);
+    boolean isApplicable(LocalDate transferDate, LocalDate schedulingDate);
 
 }

@@ -10,14 +10,18 @@ import org.springframework.stereotype.Component;
 @Component
 public class TaxStrategy1To10Days implements ITaxStrategy {
 
+    private static final int MIN_DAYS = 1;
+    private static final int MAX_DAYS = 10;
+    private static final BigDecimal FIXED_TAX_12 = new BigDecimal("12.00");
+
     @Override
-    public boolean isApplicable(LocalDate transferDate, BigDecimal transferAmount, LocalDate schedulingDate) {
+    public boolean isApplicable(LocalDate transferDate, LocalDate schedulingDate) {
         long days = ChronoUnit.DAYS.between(schedulingDate, transferDate);
-        return days >= 1 && days <= 10;
+        return days >= MIN_DAYS && days <= MAX_DAYS;
     }
 
     @Override
     public BigDecimal calculateTax(LocalDate transferDate, BigDecimal transferAmount, LocalDate schedulingDate) {
-        return BigDecimal.valueOf(12.00);
+        return FIXED_TAX_12;
     }
 }

@@ -20,7 +20,7 @@ public class TaxStrategyService implements ITaxStrategyService {
     @Override
     public BigDecimal calculateTax(LocalDate transferDate, BigDecimal transferAmount, LocalDate schedulingDate) {
         return strategies.stream()
-                .filter(strategy -> strategy.isApplicable(transferDate, transferAmount, schedulingDate))
+                .filter(strategy -> strategy.isApplicable(transferDate, schedulingDate))
                 .findFirst()
                 .map(strategy -> strategy.calculateTax(transferDate, transferAmount, schedulingDate))
                 .orElseThrow(() -> new NoApplicableTaxException("There is no applicable tax for this transfer."))

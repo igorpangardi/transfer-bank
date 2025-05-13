@@ -9,16 +9,18 @@ import java.time.LocalDate;
 @Component
 public class SameDayTaxStrategy implements ITaxStrategy {
 
+    private static final BigDecimal SAME_DAY_FIXED_TAX = new BigDecimal("3.00");
+    private static final BigDecimal SAME_DAY_PERCENT_TAX = new BigDecimal("0.025");
+
     @Override
-    public boolean isApplicable(LocalDate transferDate, BigDecimal transferAmount, LocalDate schedulingDate) {
+    public boolean isApplicable(LocalDate transferDate, LocalDate schedulingDate) {
         return transferDate.equals(schedulingDate);
     }
 
     @Override
     public BigDecimal calculateTax(LocalDate transferDate, BigDecimal transferAmount, LocalDate schedulingDate) {
-        BigDecimal fixedTax = BigDecimal.valueOf(3.00);
-        BigDecimal percentageTax = transferAmount.multiply(BigDecimal.valueOf(0.025));
-        return fixedTax.add(percentageTax);
+        BigDecimal percentageTax = transferAmount.multiply(SAME_DAY_PERCENT_TAX);
+        return SAME_DAY_FIXED_TAX.add(percentageTax);
     }
 
 }

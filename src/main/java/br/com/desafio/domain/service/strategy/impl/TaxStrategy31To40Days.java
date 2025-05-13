@@ -10,15 +10,19 @@ import org.springframework.stereotype.Component;
 @Component
 public class TaxStrategy31To40Days implements ITaxStrategy {
 
+    private static final int MIN_DAYS = 31;
+    private static final int MAX_DAYS = 40;
+    private static final BigDecimal PERCENTAGE_TAX = new BigDecimal("0.047");
+
     @Override
-    public boolean isApplicable(LocalDate transferDate, BigDecimal transferAmount, LocalDate schedulingDate) {
+    public boolean isApplicable(LocalDate transferDate, LocalDate schedulingDate) {
         long days = ChronoUnit.DAYS.between(schedulingDate, transferDate);
-        return days >= 31 && days <= 40;
+        return days >= MIN_DAYS && days <= MAX_DAYS;
     }
 
     @Override
     public BigDecimal calculateTax(LocalDate transferDate, BigDecimal transferAmount, LocalDate schedulingDate) {
-        return BigDecimal.valueOf(4.7);
+        return transferAmount.multiply(PERCENTAGE_TAX);
     }
     
 }
