@@ -3,6 +3,7 @@ package br.com.desafio.domain.service.impl;
 import br.com.desafio.domain.model.Payment;
 import br.com.desafio.domain.repository.PaymentRepository;
 import br.com.desafio.domain.service.IPaymentService;
+import br.com.desafio.domain.service.ITaxStrategyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +15,7 @@ import java.util.List;
 public class PaymentService implements IPaymentService {
 
     private final PaymentRepository paymentRepository;
-    private final TaxStrategyService taxStrategyService;
+    private final ITaxStrategyService taxStrategyService;
 
     @Override
     public Payment createSchedulingPayment(Payment entity) {
