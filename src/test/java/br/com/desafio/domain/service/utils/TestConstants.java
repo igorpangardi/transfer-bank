@@ -1,12 +1,11 @@
-package br.com.desafio.domain.service.strategy.impl;
+package br.com.desafio.domain.service.utils;
+
+import lombok.experimental.UtilityClass;
 
 import java.math.BigDecimal;
 
+@UtilityClass
 public class TestConstants {
-
-    private TestConstants() {
-        throw new IllegalStateException("Utility class");
-    }
 
     public static final long ONE_DAY = 1;
     public static final long FIVE_DAYS = 5;

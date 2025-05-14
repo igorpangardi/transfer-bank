@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import static br.com.desafio.domain.service.strategy.impl.TestConstants.*;
+import static br.com.desafio.domain.service.utils.TestConstants.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class TaxStrategy31To40DaysTest {

@@ -1,10 +1,9 @@
 package br.com.desafio.api.v1.constant;
 
-public class PaymentRequestConstants {
+import lombok.experimental.UtilityClass;
 
-    private PaymentRequestConstants() {
-        throw new IllegalStateException("Utility class");
-    }
+@UtilityClass
+public class PaymentRequestConstants {
 
     public static final String ORIGIN_AGENCY_REGEX = "^[0-9]{4}$";
     public static final String ORIGIN_AGENCY_MESSAGE_LENGTH = "Origin agency must contain exactly 4 digits";
